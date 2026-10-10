@@ -1,0 +1,48 @@
+{
+  "name": "ecpay-guard",
+  "version": "0.1.0",
+  "description": "把綠界送來的付款通知，變成可靠、不重複、不遺漏的付款事件：驗簽、去重、模擬付款標記、Next.js / Express handler",
+  "keywords": [
+    "ecpay",
+    "綠界",
+    "payment",
+    "webhook",
+    "taiwan",
+    "nextjs"
+  ],
+  "license": "MIT",
+  "author": "ishoplus",
+  "repository": "github:ishoplus/ecpay-guard",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --clean && tsc -p tsconfig.build.json",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "^0.5.8",
+    "@types/node": "^26.6.5",
+    "tsup": "^8.5.1",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.3"
+  }
+}
